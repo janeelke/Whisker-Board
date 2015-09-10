@@ -108,14 +108,13 @@ int main(void) {
   TRISBbits.TRISB7=0;   //set pins as outputs--0=output
   TRISAbits.TRISA4=0;
   TRISAbits.TRISA3=0;
-   
   TRISAbits.TRISA2=1; //make RA2 an input to trigger ADC collecting
-   
-  LATBbits.LATB7=0;  //make this pin go low
-  
+
   //Initialize pin values
   LATAbits.LATA3=1; //make this pin be 3.3v
-  LATAbits.LATA4=1; 
+  LATAbits.LATA4=1;
+  LATBbits.LATB7=0;  //make this pin go low
+  
   
   unsigned int sample=0;
   while(1){
@@ -124,57 +123,6 @@ int main(void) {
           sample=adc_grab(1);
       }
   }
-  //unsigned char setValue=127, goldenValue=127;
-  //int zeroValue, collect;
-  //int count=0, jj=0;
-  
-  //spi_io(1,74);
-  //zeroValue=adc_grab(i);
-  /*zeroValue=479;
-  //zeroValue= (int) 1.45/3.3*1024;
-  spi_io(1,setValue);
-  collect = adc_grab(i);
-  int minDiff = abs(collect-zeroValue);
-  while(count<128){
-      if(abs(collect-zeroValue)<= minDiff){
-          minDiff = abs(collect- zeroValue);
-          goldenValue=setValue;
-      }
-      if(collect>zeroValue){
-          setValue++;
-      }
-      else if(collect<zeroValue){
-          setValue--;
-      }
-      while(jj<10000){
-          jj++;
-      }
-      jj=0;
-      spi_io(1,setValue);
-      collect = adc_grab(i);
-      count++;   
-  }
-  spi_io(1,goldenValue);*/
-  
-  //if(count>=128){
-  //    LATAbits.LATA4=1;
-  //}
-  //sample2=(unsigned char) (adc_grab(i)/4);
-  
-  //spi_io(1,sample2);
-  
-  //while(1){
-      //LATBbits.LATB7=1;
-      /*//LATAbits.LATA3=0;
-      
-      spi_io(1,125);
-      //spi_io(240,0b00010010,2);
-      //spi_io(200);
-      //LATAbits.LATA3=1;
-      for(i=0;i<100000;i++){
-      Nop();
-      }*/
-  //}
   return 0;
 }
 

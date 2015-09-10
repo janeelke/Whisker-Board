@@ -9,9 +9,7 @@ unsigned int adc_grab(int sample_pin) {
   AD1CON3bits.ADCS = 2;
   AD1CON1bits.ADON = 1;
   
-  
-  //ANALOG INPUTS ON AN0(RA0),AN1{RA1),AN4(RB2),AN5(RB3)
-  
+  //ANALOG INPUTS ON AN0(RA0),AN1{RA1),AN4(RB2),AN5(RB3
   WriteCoreTimer(0);
   if (sample_pin<=1){
     // sample_pin is 1 or 2
